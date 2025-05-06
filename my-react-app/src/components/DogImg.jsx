@@ -6,8 +6,8 @@ function DogImg() {
     
 
 const fetchDogImage = async () => {
-    const res = await fetch('https://dog.ceo/api/breeds/image/random');
-    const data = await res.json();
+    const response = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await response.json();
     setImageUrl(data.message);
 
 };
@@ -16,7 +16,7 @@ return (
     <div className="dog-viewer">
         <h2>Unleash a Random Dog!</h2>
         <button onClick={fetchDogImage}>Show Me the Dog!</button>
-        
+
         {imageUrl && <img src={imageUrl} alt="Random dog" className="dog-img"/>}
     </div>
     );
