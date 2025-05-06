@@ -1,3 +1,25 @@
 import { useState } from "react";
 import "../styles/DogImg.css";
 
+function DogImg() {
+    const [imageUrl, setImageUrl] = useState('');
+    
+
+const fetchDogImage = async () => {
+    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await res.json();
+    setImageUrl(data.message);
+
+};
+
+return (
+    <div className="dog-viewer">
+        <h2>Unleash a Random Dog!</h2>
+        <button onClick={fetchDogImage}>Show Me the Dog!</button>
+        
+        {imageUrl && <img src={imageUrl} alt="Random dog" className="dog-img"/>}
+    </div>
+    );
+}
+
+export default DogImg;
