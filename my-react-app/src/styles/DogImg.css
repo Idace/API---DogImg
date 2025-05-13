@@ -10,6 +10,14 @@ body {
     color: white;
 }
 
+.head-text {
+    margin-bottom: 20px;
+    margin: 50px;
+    padding: 10px;
+    
+
+}
+
 .dog-viewer {
     background-color: #b6306f;
     padding: 30px;
@@ -67,3 +75,4 @@ button:hover {
         transform: scale(1)
     }
 }
+@import "tailwindcss";
