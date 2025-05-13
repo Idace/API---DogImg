@@ -49,7 +49,7 @@ function Login() {
 
             
         <h1 className="relative z-10 text-4xl font-bold text-pink-50 mb-6 text-center drop-shadow-lg">
-        Random Dog
+        Woof Wall
         </h1>
       <form 
         onSubmit={handleLogin}
@@ -103,7 +103,7 @@ function Login() {
         </button>
 
         <p className="text-sm text-center mt-4 text-pink-700 font-bold">
-            New player? Let´s get you in the game! {" "}
+            First time here? Come meet the pack!! {" "}
           <span
             onClick={() => navigate("/signup")}
             className="underline cursor-pointer hover:text-rose-400"
