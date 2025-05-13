@@ -1,15 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from "react";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import DogImg from './components/DogImg';
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
-  return (
-    <div className="app">
-      <h1>Random Dog Game</h1>
-      <DogImg />
-    </div>
-  );
-}
+      return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="/Login" element={<Login/>}/>
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />}/>
+        <Route path="/DogImg" element={<DogImg />} />
+      </Routes>
+    </Router>
+
+    );
+  }
+
 
 export default App;
