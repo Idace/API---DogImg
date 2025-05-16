@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { LuDog } from "react-icons/lu";
 import { FaKey } from "react-icons/fa";
 import { SlEnvolopeLetter } from "react-icons/sl";
@@ -6,10 +6,23 @@ import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
-    navigate("/Login");
+   
+
+    const user = {
+      username, 
+      password,
+      email,
+    };
+
+
+    localStorage.setItem("registeredUser", JSON.stringify(user));
+     navigate("/Login");
   };
 
   return (
@@ -35,6 +48,8 @@ function Signup() {
           required 
           pattern="^[a-zA-Z0-9]{4,15}$"
           title="4-15 characters. Only letters and numbers."
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           className="w-full py-2 pl-10 pr-4 rounded-md bg-rose-400 text-white placeholder-pink-50 focus:outline-none focus:ring-2 focus:ring-red-400"
           />
           <LuDog className="absolute right-5 top-1/2 transform -translate-y-1/2 text-[30px] text-pink-50"/>
@@ -47,6 +62,8 @@ function Signup() {
           required 
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
           title="At least 6 characters with letters and numbers."
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="w-full py-2 pl-10 pr-4 rounded-md bg-rose-400 text-white placeholder-pink-50 focus:outline-none focus:ring-2 focus:ring-red-400"
           />
           <FaKey className="absolute right-5 top-1/2 transform -translate-y-1/2 text-[30px] text-pink-50"/>
@@ -57,6 +74,8 @@ function Signup() {
           type="text" 
           placeholder="Email" 
           required 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="w-full py-2 pl-10 pr-4 rounded-md bg-rose-400 text-white placeholder-pink-50 focus:outline-none focus:ring-2 focus:ring-red-400"
           />
           <SlEnvolopeLetter className="absolute right-5 top-1/2 transform -translate-y-1/2 text-[30px] text-pink-50"/>
